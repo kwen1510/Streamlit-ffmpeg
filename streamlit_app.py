@@ -10,6 +10,8 @@ uploaded_mp4_file_length = 0
 filename = None
 downloadfile = None
 
+file_type = 'mp4'
+
 
 @st.experimental_memo
 def convert_mp4_to_wav_ffmpeg_bytes2bytes(input_data: bytes) -> bytes:
@@ -20,7 +22,7 @@ def convert_mp4_to_wav_ffmpeg_bytes2bytes(input_data: bytes) -> bytes:
     """
     # print('convert_mp4_to_wav_ffmpeg_bytes2bytes')
     args = (ffmpeg
-            .input('pipe:', format='mp4')
+            .input('pipe:', format=f{file_type})
             .output('pipe:', format='wav')
             .global_args('-loglevel', 'error')
             .get_args()
