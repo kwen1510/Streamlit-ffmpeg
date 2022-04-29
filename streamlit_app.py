@@ -44,6 +44,7 @@ def convert_mp4_to_wav_ffmpeg_bytes2bytes(input_data: bytes) -> bytes:
 
 @st.experimental_memo
 def on_file_change(uploaded_mp4_file):
+    print(uploaded_mp4_file.getvalue())
     return convert_mp4_to_wav_ffmpeg_bytes2bytes(uploaded_mp4_file.getvalue())
 
 
