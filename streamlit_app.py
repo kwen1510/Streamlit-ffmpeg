@@ -23,11 +23,19 @@ def convert_mp4_to_wav_ffmpeg_bytes2bytes(input_data: bytes) -> bytes:
     # print('convert_mp4_to_wav_ffmpeg_bytes2bytes')
     args = (
             ffmpeg
-            .input(input_video)
-            .output(output_file, **{'vf': f'subtitles={sub1}'})
+            .input('pipe:', format=f"{file_type}")
+            .output('pipe:', **{'vf': f'subtitles={sub1}'})
             .global_args('-y')
             .get_args()
         )
+
+#     args = (ffmpeg
+#             .input('pipe:', format=f"{file_type}")
+#             .output('pipe:', format='wav')
+#             .global_args('-loglevel', 'error')
+#             .get_args()
+#             )
+   
     # print(args)
     proc = subprocess.Popen(
         ['ffmpeg'] + args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
