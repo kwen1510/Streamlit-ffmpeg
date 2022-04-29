@@ -52,7 +52,7 @@ if __name__ == '__main__':
     st.markdown("""This is a quick example app for using **ffmpeg** on Streamlit Cloud.
     It uses the `ffmpeg` binary and the python wrapper `ffmpeg-python` library.""")
 
-    uploaded_mp4_file = st.file_uploader('Upload Your MP4 File', type=['mp4'], on_change=on_change_callback)
+    uploaded_mp4_file = st.file_uploader('Upload Your MP4 File', type=[f'{file_type}'], on_change=on_change_callback)
 
     if uploaded_mp4_file:
         uploaded_mp4_file_length = len(uploaded_mp4_file.getvalue())
