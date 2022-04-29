@@ -21,20 +21,20 @@ def convert_mp4_to_wav_ffmpeg_bytes2bytes(input_data: bytes) -> bytes:
     :return: A bytes object of a wav file.
     """
     # print('convert_mp4_to_wav_ffmpeg_bytes2bytes')
-    args = (
-            ffmpeg
-            .input('pipe:', format=f"{file_type}")
-            .output('pipe:', **{'vf': f'subtitles={sub1}'})
-            .global_args('-y')
-            .get_args()
-        )
-
-#     args = (ffmpeg
+#     args = (
+#             ffmpeg
 #             .input('pipe:', format=f"{file_type}")
-#             .output('pipe:', format='wav')
-#             .global_args('-loglevel', 'error')
+#             .output('pipe:', **{'vf': f'subtitles={sub1}'})
+#             .global_args('-y')
 #             .get_args()
-#             )
+#         )
+
+    args = (ffmpeg
+            .input('pipe:', format=f"{file_type}")
+            .output('pipe:', format='wav')
+            .global_args('-loglevel', 'error')
+            .get_args()
+            )
    
     # print(args)
     proc = subprocess.Popen(
