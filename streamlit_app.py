@@ -46,7 +46,7 @@ def on_change_callback():
 # The below code is a simple streamlit web app that allows you to upload an mp3 file
 # and then download the converted wav file.
 if __name__ == '__main__':
-    st.title('MP3 to WAV Converter test app')
+    st.title('Subtitles Editing App')
     st.markdown("""This is a quick example app for using **ffmpeg** on Streamlit Cloud.
     It uses the `ffmpeg` binary and the python wrapper `ffmpeg-python` library.""")
 
