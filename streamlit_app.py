@@ -10,7 +10,7 @@ uploaded_mp4_file_length = 0
 filename = None
 downloadfile = None
 
-file_type = 'mp3'
+file_type = 'mp4'
 
 
 @st.experimental_memo
