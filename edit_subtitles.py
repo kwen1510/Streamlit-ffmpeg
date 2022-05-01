@@ -8,6 +8,7 @@ import streamlit as st
 import webbrowser
 from streamlit import caching
 from random import randint
+import SessionState
 
 # global variables
 uploaded_mp4_file = None
@@ -79,7 +80,7 @@ if __name__ == '__main__':
         mp4_placeholder.empty()
         srt_placeholder.empty()
         
-        state = st.get_session_state()
+        state = get_session_state()
         state.widget_key = str(randint(1000, 100000000))
         
         # Repopulate file uploaders
