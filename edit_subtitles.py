@@ -83,8 +83,8 @@ if __name__ == '__main__':
         srt_placeholder.empty()
         
         # Repopulate file uploaders
-        uploaded_mp4_file = mp4_placeholder.file_uploader('Upload Your MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback)
-        uploaded_srt_file = srt_placeholder.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
+        uploaded_mp4_file = mp4_placeholder.file_uploader('Upload Your new MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback)
+        uploaded_srt_file = srt_placeholder.file_uploader('Upload Your new SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
 
 
     # When mp4 file uploaded
