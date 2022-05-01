@@ -7,6 +7,7 @@ import ffmpeg
 import streamlit as st
 import webbrowser
 from streamlit import caching
+from streamlit.ScriptRunner import RerunException
 
 # global variables
 uploaded_mp4_file = None
@@ -152,7 +153,8 @@ if __name__ == '__main__':
             
             if st.button('Upload a new file'):
                 caching.clear_cache()
-                webbrowser.open_new_tab(url)
+                raise RerunException
+#                 webbrowser.open_new_tab(url)
 
 #             link = '[Upload a new file](https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py)'
 #             st.markdown(link, unsafe_allow_html=True)
