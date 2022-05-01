@@ -149,11 +149,11 @@ if __name__ == '__main__':
             
             url = "https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py"
             
-#             if st.button('Upload a new file'):
-#                 webbrowser.open_new_tab(url)
+            if st.button('Upload a new file'):
+                webbrowser.open_new_tab(url)
 
-            link = '[Upload a new file](https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py)'
-            st.markdown(link, unsafe_allow_html=True)
+#             link = '[Upload a new file](https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py)'
+#             st.markdown(link, unsafe_allow_html=True)
 
         else:
             print("No video or srt files updaated")
