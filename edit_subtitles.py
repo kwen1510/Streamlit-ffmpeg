@@ -5,6 +5,7 @@ import base64
 
 import ffmpeg
 import streamlit as st
+import webbrowser
 
 # global variables
 uploaded_mp4_file = None
@@ -31,34 +32,6 @@ def convert_mp4_to_wav_ffmpeg_bytes2bytes(input_data: bytes) -> bytes:
     # print('convert_mp4_to_wav_ffmpeg_bytes2bytes')
 
     print(srt_file_path)
-
-    # args = (
-    #         ffmpeg
-    #         .input('pipe:', format=f"{file_type}")
-    #         .output('pipe:', **{'vf': f'subtitles={srt_file_path}'}, format=f"{file_type}")
-    #         .global_args('-y')
-    #         .get_args()
-    #     )
-
-    # args = (ffmpeg
-    #         .input('pipe:', format=f"{file_type}")
-    #         .output('pipe:', format='wav')
-    #         .global_args('-loglevel', 'error')
-    #         .get_args()
-    #         )
-
-    # args = (ffmpeg
-    #         .input('pipe:', format=f"{file_type}", **{'vcodec' : 'libx264'})
-    #         .output('pipe:', format='mp4')
-    #         .global_args('-loglevel', 'error')
-    #         .get_args()
-    #         )
-   
-    # # print(args)
-    # proc = subprocess.Popen(
-    #     ['ffmpeg'] + args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    # return proc.communicate(input=input_data)[0]
-
 
 @st.experimental_memo
 def on_file_change(uploaded_mp4_file):
@@ -101,9 +74,6 @@ if __name__ == '__main__':
         uploaded_mp4_file_length = len(uploaded_mp4_file.getvalue())
 
         filename = pathlib.Path(uploaded_mp4_file.name).stem
-        # if uploaded_mp4_file_length > 0:
-        #     st.text(f'Size of uploaded "{uploaded_mp4_file.name}" file: {uploaded_mp4_file_length} bytes')
-        #     downloadfile = on_file_change(uploaded_mp4_file)
 
         # print("filename: ", filename)
         mp4_file_path = HERE / f'./{filename}_binaries.mp4'
@@ -177,39 +147,12 @@ if __name__ == '__main__':
                     mime="video/mp4"
                 )
 
-
-            # downloadfile = on_file_change(uploaded_mp4_file)
-
         else:
             print("No video or srt files updaated")
             st.write("No video or srt files updated")
-
-
-        # # Check that the srt to text file is created properly
-        # with open(srt_file_path) as fp:
-        #     lines = fp.readlines()
-        #     for line in lines:
-        #         print(line)
-
-
-
-    st.markdown("""---""")
-    if downloadfile:
-        length = len(downloadfile)
-        if length > 0:
-            st.subheader('After combining the video file and subtitles you can download it below')
-            button = st.download_button(label=f"Download combined .{file_type} file",
-                            data=downloadfile,
-                            file_name=f'{filename}_sub.mp4',
-                            mime=f'video/mp4')
-            st.text(f'Size of "{filename}.{file_type}" file to download: {length} bytes')
-    st.markdown("""---""")
 
 
 
 
 # Bump up the upload size with config.toml
 # https://stackoverflow.com/questions/64519818/converting-mkv-files-to-mp4-with-ffmpeg-python
-
-
-# Convert from byte file to mp4 file and store under "here"
