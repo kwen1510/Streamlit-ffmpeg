@@ -150,7 +150,9 @@ if __name__ == '__main__':
             
             url = "https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py"
             
-#             if st.button('Upload a new file'):
+            if st.button('Upload a new file'):
+                del uploaded_mp4_file
+                
 #                 caching.clear_cache()
 #                 webbrowser.open_new_tab(url)
 
