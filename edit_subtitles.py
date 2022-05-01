@@ -62,11 +62,7 @@ if __name__ == '__main__':
 
     HERE = Path(__file__).parent
     print(HERE)
-
-#     uploaded_mp4_file = st.file_uploader('Upload Your MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback)
-
-#     uploaded_srt_file = st.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
-    
+   
     mp4_placeholder = st.empty()
     srt_placeholder = st.empty()
     
@@ -83,8 +79,10 @@ if __name__ == '__main__':
         srt_placeholder.empty()
         
         # Repopulate file uploaders
-        uploaded_mp4_file = mp4_placeholder.file_uploader('Upload Your new MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback)
-        uploaded_srt_file = srt_placeholder.file_uploader('Upload Your new SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
+        url = 'https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py'
+        webbrowser.open_new_tab(url)
+#         uploaded_mp4_file = mp4_placeholder.file_uploader('Upload Your new MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback)
+#         uploaded_srt_file = srt_placeholder.file_uploader('Upload Your new SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
 
 
     # When mp4 file uploaded
