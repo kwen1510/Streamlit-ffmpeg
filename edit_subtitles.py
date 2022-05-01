@@ -74,17 +74,12 @@ if __name__ == '__main__':
     combine_subtitles_btn = st.button("Write subtitles to video")
     
     if st.button('Upload a new file'):
-        
-        st.markdown('''
-        <style>
-            .uploaded_mp4_file {display: none}
-        <style>''',
-        unsafe_allow_html=True)
-        
+       
         # Delete file uploaders
         mp4_placeholder.empty()
         srt_placeholder.empty()
         
+        state = get_session_state()
         state.widget_key = str(randint(1000, 100000000))
         
         # Repopulate file uploaders
