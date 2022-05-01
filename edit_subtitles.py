@@ -63,6 +63,8 @@ if __name__ == '__main__':
 
     HERE = Path(__file__).parent
     print(HERE)
+    
+    st.session_state.key = str(randint(1000, 100000000))
    
     uploaded_mp4_file = st.file_uploader('Upload Your MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback, key=st.session_state.key)
 
