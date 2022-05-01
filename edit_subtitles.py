@@ -7,7 +7,7 @@ import ffmpeg
 import streamlit as st
 import webbrowser
 from streamlit import caching
-from streamlit.ScriptRunner import RerunException
+from streamlit.script_runner import StopException, RerunException
 
 # global variables
 uploaded_mp4_file = None
