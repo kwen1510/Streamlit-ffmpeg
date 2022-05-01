@@ -63,6 +63,13 @@ if __name__ == '__main__':
 
     HERE = Path(__file__).parent
     print(HERE)
+    
+    
+    if 'key' not in st.session_state:
+
+        st.session_state.key = str(randint(1000, 100000000))
+
+        print(st.session_state.key)
         
 
     mp4_placeholder = st.empty()
