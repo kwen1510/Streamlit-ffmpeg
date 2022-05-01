@@ -146,6 +146,11 @@ if __name__ == '__main__':
                     file_name=f"{filename}_sub.mp4",
                     mime="video/mp4"
                 )
+            
+            url = "https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py"
+            
+            if st.button('Upload a new file'):
+                webbrowser.open_new_tab(url)
 
         else:
             print("No video or srt files updaated")
