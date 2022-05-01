@@ -68,7 +68,8 @@ if __name__ == '__main__':
     uploaded_srt_file = st.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
     
     placeholder = st.empty()
-    isclick = placeholder.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
+    
+    isclick = placeholder.file_uploader('test', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
     if isclick:
         placeholder.empty()
 
