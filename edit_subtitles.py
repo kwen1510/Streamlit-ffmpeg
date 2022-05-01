@@ -7,6 +7,7 @@ import ffmpeg
 import streamlit as st
 import webbrowser
 from streamlit import caching
+from random import randint
 
 # global variables
 uploaded_mp4_file = None
@@ -80,13 +81,15 @@ if __name__ == '__main__':
         <style>''',
         unsafe_allow_html=True)
         
-#         # Delete file uploaders
-#         mp4_placeholder.empty()
-#         srt_placeholder.empty()
+        # Delete file uploaders
+        mp4_placeholder.empty()
+        srt_placeholder.empty()
         
-#         # Repopulate file uploaders
-#         uploaded_mp4_file = mp4_placeholder.file_uploader('Upload Your MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback)
-#         uploaded_srt_file = srt_placeholder.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
+        state.widget_key = str(randint(1000, 100000000))
+        
+        # Repopulate file uploaders
+        uploaded_mp4_file = mp4_placeholder.file_uploader('Upload Your MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback, key=state.widget_key)
+        uploaded_srt_file = srt_placeholder.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt, key=state.widget_key)
 
 
     # When mp4 file uploaded
