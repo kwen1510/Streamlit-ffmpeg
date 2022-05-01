@@ -69,8 +69,9 @@ if __name__ == '__main__':
     
     placeholder = st.empty()
     
-    isclick = placeholder.file_uploader('test', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
-    if isclick:
+    box = placeholder.file_uploader('test', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
+   
+    if st.button("isclick"):
         placeholder.empty()
 
     combine_subtitles_btn = st.button("Write subtitles to video")
