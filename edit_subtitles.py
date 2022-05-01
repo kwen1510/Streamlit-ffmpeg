@@ -79,7 +79,7 @@ if __name__ == '__main__':
         mp4_placeholder.empty()
         srt_placeholder.empty()
         
-        state = get_session_state()
+        state = st.get_session_state()
         state.widget_key = str(randint(1000, 100000000))
         
         # Repopulate file uploaders
