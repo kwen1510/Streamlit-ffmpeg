@@ -163,7 +163,7 @@ if __name__ == '__main__':
 
             (ffmpeg
             .input(mp4_file_path)
-            .output(f'{uploaded_video_file_path}', **{'vf': f'subtitles=10_seconds.srt'})
+            .output(f'{uploaded_video_file_path}', **{'vf': f'subtitles={srt_file_path}'})
             .global_args('-y')
             .run()
             )
