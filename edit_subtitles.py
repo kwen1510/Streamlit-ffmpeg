@@ -67,12 +67,12 @@ if __name__ == '__main__':
 
     uploaded_srt_file = st.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
     
-    placeholder = st.empty()
+    mp4_placeholder = st.empty()
+    srt_placeholder = st.empty()
     
-    box = placeholder.file_uploader('test', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
-   
-    if st.button("isclick"):
-        placeholder.empty()
+    uploaded_mp4_file = mp4_placeholder.file_uploader('Upload Your MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback)
+    
+    uploaded_srt_file = srt_placeholder.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
 
     combine_subtitles_btn = st.button("Write subtitles to video")
 
@@ -158,13 +158,8 @@ if __name__ == '__main__':
             url = "https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py"
             
             if st.button('Upload a new file'):
-                del uploaded_mp4_file
-                
-#                 caching.clear_cache()
-#                 webbrowser.open_new_tab(url)
-
-#             link = '[Upload a new file](https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py)'
-#             st.markdown(link, unsafe_allow_html=True)
+                mp4_placeholder.empty()
+                srt_placeholder.empty()
 
         else:
             print("No video or srt files updaated")
