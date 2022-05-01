@@ -75,6 +75,10 @@ if __name__ == '__main__':
     uploaded_srt_file = srt_placeholder.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt)
 
     combine_subtitles_btn = st.button("Write subtitles to video")
+    
+    if st.button('Upload a new file'):
+        mp4_placeholder.empty()
+        srt_placeholder.empty()
 
 
     # When mp4 file uploaded
@@ -154,12 +158,6 @@ if __name__ == '__main__':
                     file_name=f"{filename}_sub.mp4",
                     mime="video/mp4"
                 )
-            
-            url = "https://share.streamlit.io/kwen1510/streamlit-ffmpeg/main/edit_subtitles.py"
-            
-            if st.button('Upload a new file'):
-                mp4_placeholder.empty()
-                srt_placeholder.empty()
 
         else:
             print("No video or srt files updaated")
