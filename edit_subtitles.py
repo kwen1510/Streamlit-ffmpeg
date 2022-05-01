@@ -11,6 +11,7 @@ uploaded_mp4_file = None
 uploaded_srt_file = None
 uploaded_mp4_file_length = 0
 uploaded_srt_file_length = 0
+uploaded_video_file_path = None
 srt_file_path = None
 mp4_file_path = None
 filename = None
@@ -154,20 +155,23 @@ if __name__ == '__main__':
 
             print(srt_file_path)
 
+            uploaded_video_file_path = HERE / f'./{filename}.mov'
+
+            print(uploaded_video_file_path)
 
             print("Burning subtitles..")
 
             (ffmpeg
-            .input("10_seconds.mp4")
-            .output("10_seconds.mov", **{'vf': f'subtitles=10_seconds.srt'})
-#             .global_args('-y')
+            .input(mp4_file_path)
+            .output(f'{uploaded_video_file_path}', **{'vf': f'subtitles=10_seconds.srt'})
+            .global_args('-y')
             .run()
             )
 
 
             with open("10_seconds.mov", "rb") as fp:
                 btn = st.download_button(
-                    label="Download ZIP",
+                    label="Download converted mp4 file",
                     data=fp,
                     file_name=f"{filename}_sub.mp4",
                     mime="video/mp4"
