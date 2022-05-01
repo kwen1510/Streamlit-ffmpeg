@@ -160,7 +160,7 @@ if __name__ == '__main__':
             (ffmpeg
             .input("10_seconds.mp4")
             .output("10_seconds.mov", **{'vf': f'subtitles=10_seconds.srt'})
-            .global_args('-y')
+#             .global_args('-y')
             .run()
             )
 
