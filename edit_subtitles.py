@@ -97,27 +97,27 @@ if __name__ == '__main__':
 
     combine_subtitles_btn = st.button("Write subtitles to video")
 
-    if st.button("New video"):
+#     if st.button("New video"):
 
-        if 'key' not in st.session_state:
+#         if 'key' not in st.session_state:
 
-            st.session_state.key = str(randint(1000, 100000000))
+#             st.session_state.key = str(randint(1000, 100000000))
 
-            print(st.session_state.key)
+#             print(st.session_state.key)
 
-        else:
+#         else:
 
-            st.session_state.key = str(randint(1000, 100000000))
+#             st.session_state.key = str(randint(1000, 100000000))
 
-            print(st.session_state.key)
+#             print(st.session_state.key)
             
-        # Empty all placeholders
-        mp4_placeholder.empty()
-        srt_placeholder.empty()
+#         # Empty all placeholders
+#         mp4_placeholder.empty()
+#         srt_placeholder.empty()
 
-        uploaded_mp4_file = mp4_placeholder.file_uploader('Upload Your MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback, key=st.session_state.key)
+#         uploaded_mp4_file = mp4_placeholder.file_uploader('Upload Your MP4 File', type=[f'{file_type}'], accept_multiple_files=False, on_change=on_change_callback, key=st.session_state.key)
 
-        uploaded_srt_file = srt_placeholder.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt, key=st.session_state.key)
+#         uploaded_srt_file = srt_placeholder.file_uploader('Upload Your SRT File', type=['srt'], accept_multiple_files=False, on_change=extract_srt, key=st.session_state.key)
    
 
 
