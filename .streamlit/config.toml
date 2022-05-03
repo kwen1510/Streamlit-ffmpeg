@@ -1,16 +1,8 @@
-# [theme]
-# # dark theme
-# primaryColor="#f63366"
-# backgroundColor="#0e1117"
-# secondaryBackgroundColor="#31333F"
-# textColor="#fafafa"
-# font="sans serif"
 [theme]
-# shades of purple
-primaryColor="#fad000"
-backgroundColor="#28284e"
-secondaryBackgroundColor="#222145"
-textColor="#ffffff"
+primaryColor="#d33682"
+backgroundColor="#002b36"
+secondaryBackgroundColor="#586e75"
+textColor="#fafafa"
 font="sans serif"
 
 [server]
@@ -19,3 +11,4 @@ font="sans serif"
 runOnSave = true
 # you will need this if running docker on windows host:
 # fileWatcherType = "poll"
+maxUploadSize = 1048
