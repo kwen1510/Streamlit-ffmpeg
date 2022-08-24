@@ -221,7 +221,7 @@ if __name__ == '__main__':
                 #         mime="video/mp4"
                 #     )
 
-                col1, col2 = st.columns(2)
+#                 col1, col2 = st.columns(2)
 
 
                 video_file = open(uploaded_video_file_path, 'rb')
@@ -229,26 +229,26 @@ if __name__ == '__main__':
                 video_bytes = video_file.read()
 
                 # Insert video
-                with col1:
-                    st.video(video_bytes)
+#                 with col1:
+                st.video(video_bytes)
 
 
                 # Insert text editor
-                with col2:
+#                 with col2:
 
-                    subtitles = []
+                subtitles = []
 
-                    with open(srt_file_path) as f:
+                with open(srt_file_path) as f:
 
-                        for line in f:
+                    for line in f:
 
-                            subtitles.append(line)
+                        subtitles.append(line)
 
-                        subtitles = ''.join(subtitles)
+                    subtitles = ''.join(subtitles)
 
-                    print(subtitles)
+                print(subtitles)
 
-                    txt = st.text_area('Subtitles', subtitles, height=500)                                      
+                txt = st.text_area('Subtitles', subtitles, height=500)                                      
 
                 if st.button("update_subtitles") or st.session_state.subtitling_state == False:
                     
@@ -280,35 +280,35 @@ if __name__ == '__main__':
 
                     # Update the new video and subtitle files
 
-                    col1, col2 = st.columns(2)
+#                     col1, col2 = st.columns(2)
 
                     video_file = open(edited_video_file_path, 'rb')
 
                     video_bytes = video_file.read()
 
                     # Insert video
-                    with col1:
-                        st.video(video_bytes)
+#                     with col1:
+                    st.video(video_bytes)
 
                     new_srt_file_path = HERE / f'{filename}_edited.srt'
 
 
                     # Insert text editor
-                    with col2:
+#                     with col2:
 
-                        subtitles = []
+                    subtitles = []
 
-                        with open(new_srt_file_path) as f:
+                    with open(new_srt_file_path) as f:
 
-                            for line in f:
+                        for line in f:
 
-                                subtitles.append(line)
+                            subtitles.append(line)
 
-                            subtitles = ''.join(subtitles)
+                        subtitles = ''.join(subtitles)
 
-                        print(subtitles)
+                    print(subtitles)
 
-                        txt = st.text_area('Subtitles', subtitles, height=500)
+                    txt = st.text_area('Subtitles', subtitles, height=500)
 
                     # Initialise new zipfile
 
