@@ -123,6 +123,9 @@ if __name__ == '__main__':
 
     # When mp4 file uploaded
     if uploaded_mp4_file:
+        
+        st.write("video uploaded")
+        
         uploaded_mp4_file_length = len(uploaded_mp4_file.getvalue())
 
         filename = pathlib.Path(uploaded_mp4_file.name).stem
@@ -141,6 +144,8 @@ if __name__ == '__main__':
 
     # When srt file uploaded
     if uploaded_srt_file:
+        
+        st.write("subtitles uploaded")
 
         # print(len(uploaded_srt_file.getvalue()))
 
